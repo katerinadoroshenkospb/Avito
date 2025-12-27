@@ -28,12 +28,25 @@ dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 
+    implementation 'org.slf4j:slf4j-api:2.0.12'
+    testImplementation 'org.slf4j:slf4j-simple:2.0.12'
+
     compileOnly group: 'org.projectlombok', name: 'lombok', version: lombokVersion
     annotationProcessor group: 'org.projectlombok', name: 'lombok', version: lombokVersion
     testCompileOnly group: 'org.projectlombok', name: 'lombok', version: lombokVersion
     testAnnotationProcessor group: 'org.projectlombok', name: 'lombok', version: lombokVersion
 }
 
+compileJava {
+    options.encoding = 'UTF-8'
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
+
 test {
+    systemProperty 'file.encoding', 'UTF-8'
+    environment 'JAVA_TOOL_OPTIONS', '-Dfile.encoding=UTF-8'
     useJUnitPlatform()
 }
