@@ -1,3 +1,5 @@
+package tests;
+
 import io.restassured.common.mapper.TypeRef;
 import io.restassured.response.ValidatableResponse;
 import java.util.List;

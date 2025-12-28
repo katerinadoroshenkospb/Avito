@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * DTO получаемой из ответа Statistics
+ * POJO получаемой из ответа Statistics
  */
 @NoArgsConstructor
 @AllArgsConstructor

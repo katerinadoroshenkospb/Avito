@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * DTO получаемой ошибки
+ * POJO получаемой ошибки
  */
 @Data
 @Builder

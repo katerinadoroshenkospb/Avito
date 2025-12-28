@@ -4,7 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 
 /**
- * DTO класса, используемого для запроса создания Item
+ * POJO класса, используемого для запроса создания Item
  */
 @Data
 @Builder

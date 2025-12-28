@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * DTO получаеммого ответа при запросе информации о Item
+ * POJO получаеммого ответа при запросе информации о Item
  */
 @Data
 @NoArgsConstructor

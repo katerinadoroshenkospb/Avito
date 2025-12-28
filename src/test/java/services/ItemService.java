@@ -1,4 +1,4 @@
-package Services;
+package services;
 
 import io.restassured.common.mapper.TypeRef;
 import io.restassured.response.ValidatableResponse;
@@ -9,8 +9,6 @@ import models.Item;
 import org.apache.http.HttpStatus;
 import providers.ItemProvider;
 import utils.ParseUtils;
-
-import static utils.RandomUtils.getRandomInteger;
 
 @Slf4j
 public class ItemService {

@@ -1,4 +1,6 @@
-import Services.ItemService;
+package tests;
+
+import services.ItemService;
 import io.restassured.common.mapper.TypeRef;
 import io.restassured.response.ValidatableResponse;
 import java.util.ArrayList;
