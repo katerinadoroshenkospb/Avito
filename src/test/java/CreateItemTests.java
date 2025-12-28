@@ -20,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static utils.RandomUtils.getRandomInteger;
 
 @Slf4j
+@DisplayName("Создать объявления: POST /api/1/item")
 public class CreateItemTests {
 
     @Test
@@ -38,16 +39,21 @@ public class CreateItemTests {
         log.info("Для запроса используется: %s".formatted(item));
         ValidatableResponse response = ItemProvider.sendPostRequest(item);
         response.statusCode(HttpStatus.SC_OK);
-        CreateItemResponse itemResponse = response.extract().response().as(new TypeRef<>() {
-        });
-        log.info("Полученный ответ: %s".formatted(itemResponse));
-        assertEquals(0, itemResponse.getSellerId());
-        assertEquals(item.getName(), itemResponse.getName());
-        assertEquals(0, itemResponse.getPrice());
-        Assertions.assertNotNull(itemResponse.getCreatedAt());
-        assertEquals(0, itemResponse.getStatistics().getLikes());
-        assertEquals(0, itemResponse.getStatistics().getViewCount());
-        assertEquals(0, itemResponse.getStatistics().getContacts());
+        try {
+            CreateItemResponse itemResponse = response.extract().response().as(new TypeRef<>() {
+            });
+            assertEquals(0, itemResponse.getSellerId());
+            assertEquals(item.getName(), itemResponse.getName());
+            assertEquals(0, itemResponse.getPrice());
+            Assertions.assertNotNull(itemResponse.getCreatedAt());
+            assertEquals(0, itemResponse.getStatistics().getLikes());
+            assertEquals(0, itemResponse.getStatistics().getViewCount());
+            assertEquals(0, itemResponse.getStatistics().getContacts());
+        } catch (Exception e) {
+            log.error("Ответ не соответствует описанному контракту");
+            log.error("Полученный ответ: %s".formatted(response.extract().asPrettyString()));
+            Assertions.fail();
+        }
     }
 
     @Test
@@ -67,6 +73,7 @@ public class CreateItemTests {
         ValidatableResponse responseFirst = ItemProvider.sendPostRequest(item);
         responseFirst.statusCode(HttpStatus.SC_OK);
         ValidatableResponse response = ItemProvider.sendPostRequest(item);
+        response.statusCode(HttpStatus.SC_BAD_REQUEST);
         Error itemError = response.extract().response().as(new TypeRef<>() {
         });
         log.info("Полученная ошибка при повторном создании с тем же sellerId: %s".formatted(itemError));

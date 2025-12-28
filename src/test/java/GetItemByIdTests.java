@@ -23,6 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static utils.RandomUtils.getRandomInteger;
 
 @Slf4j
+@DisplayName("Получить объявления по его идентификатору: GET /api/1/item/{id}")
 public class GetItemByIdTests {
 
     @Test

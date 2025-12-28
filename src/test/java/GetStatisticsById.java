@@ -20,6 +20,7 @@ import providers.StatisticProvider;
 import static utils.RandomUtils.getRandomInteger;
 
 @Slf4j
+@DisplayName("Получить статистику по айтем GET /api/1/statistic/{id}")
 public class GetStatisticsById {
 
     @Getter

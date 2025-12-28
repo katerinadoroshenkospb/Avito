@@ -20,6 +20,7 @@ import providers.ItemProvider;
 import static utils.RandomUtils.getRandomInteger;
 
 @Slf4j
+@DisplayName("Получить все объявления по идентификатору продавца: GET /api/1/{sellerID}/item")
 public class GetItemBySellerIdTests {
 
     @Getter
