@@ -12,4 +12,6 @@ public class ApiServicePath {
     public static final String GET_ITEM_BY_ID = "/api/1/item/{id}";
 
     public static final String GET_ITEM_BY_SELLER_ID = " /api/1/{sellerID}/item";
+
+    public static final String GET_STATISTIC_BY_ID = "/api/1/statistic/{id}";
 }
